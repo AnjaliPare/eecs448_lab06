@@ -27,6 +27,22 @@ void Test::isEmptyTest2()
   }
 }
 
+void Test::isEmptyTest3()
+{
+  Queue q;
+  q.enqueue(1);
+  q.dequeue();
+  if (q.isEmpty()==true)
+  {
+    std::cout<<"\nTest 3: Enqueing then dequeing a value makes the queue empty: PASSED";
+  }
+  else
+  {
+    std::cout<<"\nTest 3: Enqueing then dequeing a value makes the queue empty: FAILED";
+  }
+}
+
+
 void Test::dequeueTest1()
 {
   Queue q;
@@ -48,14 +64,15 @@ void Test::dequeueTest2()
   q.enqueue(1);
   q.enqueue(2);
   q.enqueue(3);
+  q.enqueue(4);
   q.dequeue();
   if (q.peekFront()==2)
   {
-    std::cout<<"\nTest 4: Enqueue 1, 2, 3 on empty queue then dequeue then peekFront returns 2: PASSED";
+    std::cout<<"\nTest 4: Enqueue 1, 2, 3, 4 on empty queue then dequeue, peekFront returns 2: PASSED";
   }
   else
   {
-    std::cout<<"\nTest 4: Enqueue 1, 2, 3 on empty queue then dequeue then peekFront returns 2: FAILED";
+    std::cout<<"\nTest 4: Enqueue 1, 2, 3, 4 on empty queue then dequeue, peekFront returns 2: FAILED";
   }
 }
 
@@ -79,6 +96,7 @@ void Test::runTest()
 {
   isEmptyTest1();
   isEmptyTest2();
+  isEmptyTest3();
   dequeueTest1();
   dequeueTest2();
   dequeueTest3();

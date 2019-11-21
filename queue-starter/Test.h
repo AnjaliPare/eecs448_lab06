@@ -17,6 +17,7 @@ public:
   void runTest();
   void isEmptyTest1();
   void isEmptyTest2();
+  void isEmptyTest3();
   void dequeueTest1();
   void dequeueTest2();
   void dequeueTest3();

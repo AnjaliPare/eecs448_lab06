@@ -21,6 +21,9 @@ public:
   void dequeueTest1();
   void dequeueTest2();
   void dequeueTest3();
+  void peekFrontTest1();
+  void peekFrontTest2();
+  void peekFrontTest3();
 
 
 };

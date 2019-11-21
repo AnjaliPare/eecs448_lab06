@@ -63,8 +63,6 @@ void Test::dequeueTest2()
   Queue q;
   q.enqueue(1);
   q.enqueue(2);
-  q.enqueue(3);
-  q.enqueue(4);
   q.dequeue();
   if (q.peekFront()==2)
   {
@@ -90,7 +88,51 @@ void Test::dequeueTest3()
   }
 }
 
+void Test::peekFrontTest1()
+{
+  Queue q;
+    q.enqueue(1);
+    if(q.peekFront() == 1)
+    {
+      std::cout<<"\nTest 6: Enqueue a value of 1, peekfront returns 1: PASSED";
+    }
+    else
+    {
+      std::cout<<"\nTest 6: Enqueue a value of 1, peekfront returns 1: FAILED";
+    }
 
+}
+
+void Test::peekFrontTest2()
+{
+  Queue q;
+    q.enqueue(1);
+    q.enqueue(2);
+    q.enqueue(3);
+    q.enqueue(4);
+    if(q.peekFront() == 1)
+    {
+      std::cout<<"\nTest 7: Enqueue a series of numbers, peekfront should return the first value enqueued: PASSED";
+    }
+    else
+    {
+      std::cout<<"\nTest 7: Enqueue a series of numbers, peekfront should return the first value enqueued: FAILED";
+    }
+}
+
+void Test::peekFrontTest3()
+{
+  Queue q;
+  try
+  {
+    q.peekFront();
+    std::cout<<"\nTest 8: peekFront on an empty queue returns an exception: FAILED";
+  }
+  catch(std::runtime_error &e)
+  {
+    std::cout<<"\nTest 8: peekFront on an empty queue returns an exception: PASSED";
+  }
+}
 
 void Test::runTest()
 {
@@ -100,5 +142,8 @@ void Test::runTest()
   dequeueTest1();
   dequeueTest2();
   dequeueTest3();
+  peekFrontTest1();
+  peekFrontTest2();
+  peekFrontTest3();
   std::cout<<"\n";
 }

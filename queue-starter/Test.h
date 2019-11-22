@@ -75,10 +75,15 @@ public:
    */
   void enqueueTest1();
   /**
-   * Tests if after adding a series of number to the queue, the queue is not empty
+   * Tests if enqueue adds to the back of the queue
    * @param none
    */
   void enqueueTest2();
+  /**
+   * Tests if after adding a series of number to the queue, the queue is not empty
+   * @param none
+   */
+  void enqueueTest3();
   /**
    * Tests if a queue pointer is set to null after destructor is called
    * @param none

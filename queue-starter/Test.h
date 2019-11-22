@@ -24,6 +24,7 @@ public:
   void peekFrontTest1();
   void peekFrontTest2();
   void peekFrontTest3();
+  void enqueueTest1();
 
 
 };

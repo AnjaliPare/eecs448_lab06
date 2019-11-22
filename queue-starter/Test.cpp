@@ -66,11 +66,11 @@ void Test::dequeueTest2()
   q.dequeue();
   if (q.peekFront()==2)
   {
-    std::cout<<"\nTest 5: Enqueue 1, 2, 3, 4 on empty queue then dequeue, peekFront returns 2: PASSED";
+    std::cout<<"\nTest 5: Enqueue 1, 2, then dequeue, peekFront returns 2: PASSED";
   }
   else
   {
-    std::cout<<"\nTest 5: Enqueue 1, 2, 3, 4 on empty queue then dequeue, peekFront returns 2: FAILED";
+    std::cout<<"\nTest 5: Enqueue 1, 2, then dequeue, peekFront returns 2: FAILED";
   }
 }
 
@@ -88,17 +88,55 @@ void Test::dequeueTest3()
   }
 }
 
+void Test::dequeueTest4()
+{
+  Queue q;
+  q.enqueue(1);
+  q.enqueue(2);
+  q.enqueue(3);
+  q.dequeue();
+  q.dequeue();
+  q.dequeue();
+  if (q.isEmpty()==true)
+  {
+    std::cout<<"\nTest 7: Enqueue a series of numbers and dequeuing all of them gives an empty queue: PASSED";
+  }
+  else
+  {
+    std::cout<<"\nTest 7: Enqueue a series of numbers and dequeuing all of them gives an empty queue: FAILED";
+  }
+}
+
+void Test::dequeueTest5()
+{
+  Queue q;
+  q.enqueue(1);
+  q.enqueue(2);
+  q.enqueue(3);
+  q.enqueue(4);
+  q.dequeue();
+
+  if (q.peekFront()==3)
+  {
+    std::cout<<"\nTest 8: Enqueue adds numbers to the front: PASSED";
+  }
+  else
+  {
+    std::cout<<"\nTest 8: Enqueue adds numbers to the front: FAILED";
+  }
+}
+
 void Test::peekFrontTest1()
 {
   Queue q;
     q.enqueue(1);
     if(q.peekFront() == 1)
     {
-      std::cout<<"\nTest 7: Enqueue a value of 1, peekfront returns 1: PASSED";
+      std::cout<<"\nTest 9: Enqueue a value of 1, peekfront returns 1: PASSED";
     }
     else
     {
-      std::cout<<"\nTest 7: Enqueue a value of 1, peekfront returns 1: FAILED";
+      std::cout<<"\nTest 9: Enqueue a value of 1, peekfront returns 1: FAILED";
     }
 
 }
@@ -112,11 +150,11 @@ void Test::peekFrontTest2()
     q.enqueue(4);
     if(q.peekFront() == 1)
     {
-      std::cout<<"\nTest 8: Enqueue a series of numbers, peekfront should return the first value enqueued: PASSED";
+      std::cout<<"\nTest 10: Enqueue a series of numbers, peekfront should return the first value enqueued: PASSED";
     }
     else
     {
-      std::cout<<"\nTest 8: Enqueue a series of numbers, peekfront should return the first value enqueued: FAILED";
+      std::cout<<"\nTest 10: Enqueue a series of numbers, peekfront should return the first value enqueued: FAILED";
     }
 }
 
@@ -126,15 +164,29 @@ void Test::peekFrontTest3()
   try
   {
     q.peekFront();
-    std::cout<<"\nTest 9: peekFront on an empty queue returns an exception: FAILED";
+    std::cout<<"\nTest 11: peekFront on an empty queue returns an exception: FAILED";
   }
   catch(std::runtime_error &e)
   {
-    std::cout<<"\nTest 9: peekFront on an empty queue returns an exception: PASSED";
+    std::cout<<"\nTest 11: peekFront on an empty queue returns an exception: PASSED";
   }
 }
 
 void Test::enqueueTest1()
+{
+  Queue q;
+  q.enqueue(1);
+  if (q.isEmpty()==true)
+  {
+    std::cout<<"\nTest 12: Enqueing a value makes the Queue not empty: FAILED";
+  }
+  else
+  {
+    std::cout<<"\nTest 12: Enqueing a value makes the Queue not empty: PASSED";
+  }
+}
+
+void Test::enqueueTest2()
 {
   Queue q;
     q.enqueue(1);
@@ -143,11 +195,28 @@ void Test::enqueueTest1()
     q.enqueue(4);
     if(q.peekFront() == 1)
     {
-      std::cout<<"\nTest 10: Enqueue adds numbers to the back  PASSED";
+      std::cout<<"\nTest 13: Enqueue a series of numbers, peekfront should return the first value enqueued: PASSED";
     }
     else
     {
-      std::cout<<"\nTest 10: Enqueue a series of numbers, peekfront should return the first value enqueued: FAILED";
+      std::cout<<"\nTest 13: Enqueue a series of numbers, peekfront should return the first value enqueued: FAILED";
+    }
+}
+
+void Test::enqueueTest3()
+{
+  Queue q;
+    q.enqueue(1);
+    q.enqueue(2);
+    q.enqueue(3);
+    q.enqueue(4);
+    if(q.isEmpty() == true)
+    {
+      std::cout<<"\nTest 14: Enqueue more than one number and queue is not empty: FAILED";
+    }
+    else
+    {
+      std::cout<<"\nTest 14: Enqueue more than one number and queue is not empty: PASSED";
     }
 }
 
@@ -159,15 +228,14 @@ void Test::deleteTest1()
   delete q;
   if (q == nullptr)
   {
-    std::cout<< "Test 11: destructor sets queue pointer back to null on deletion: PASSED";
+    std::cout<< "Test 15: destructor sets queue pointer back to null on deletion: PASSED";
   }
   else
   {
-    std::cout<< "Test 11: destructor sets queue pointer back to null on deletion: FAILED";
+    std::cout<< "Test 15: destructor sets queue pointer back to null on deletion: FAILED";
   }
 }
 
-void Test::
 
 void Test::runTest()
 {
@@ -177,9 +245,14 @@ void Test::runTest()
   dequeueTest1();
   dequeueTest2();
   dequeueTest3();
+  dequeueTest4();
+  dequeueTest5();
   peekFrontTest1();
   peekFrontTest2();
   peekFrontTest3();
   enqueueTest1();
+  enqueueTest2();
+  enqueueTest3();
+  deleteTest1();
   std::cout<<"\n";
 }

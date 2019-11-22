@@ -21,11 +21,18 @@ public:
   void dequeueTest1();
   void dequeueTest2();
   void dequeueTest3();
+  void dequeueTest4();
+  void dequeueTest5();
   void peekFrontTest1();
   void peekFrontTest2();
   void peekFrontTest3();
   void enqueueTest1();
+  void enqueueTest2();
+  void enqueueTest3();
+  void deleteTest1();
 
 
 };
 #endif
+
+//
